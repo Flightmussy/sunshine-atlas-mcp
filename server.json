@@ -1,0 +1,14 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.sunshineatlas/sunshine-atlas",
+  "title": "Sunshine Atlas",
+  "description": "Where is it sunny? Monthly sunshine scores, temps, rain and sea temp for 3,833 destinations.",
+  "version": "1.0.0",
+  "websiteUrl": "https://sunshineatlas.com/mcp/",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://sunshineatlas.com/api/mcp"
+    }
+  ]
+}
