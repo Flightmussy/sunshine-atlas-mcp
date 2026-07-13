@@ -45,7 +45,7 @@ function loadData() {
   if (st.mtimeMs === mtime && dests.length) return
   dests = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'))
   mtime = st.mtimeMs
-  console.log(`[data] loaded ${dests.length} destinations (mtime ${new Date(st.mtimeMs).toISOString()})`)
+  console.error(`[data] loaded ${dests.length} destinations (mtime ${new Date(st.mtimeMs).toISOString()})`)
 }
 
 function monthIndex(m) {
@@ -252,5 +252,5 @@ const httpServer = http.createServer(async (req, res) => {
 })
 
 loadData() // fail fast at boot if the dataset is unreadable
-httpServer.listen(PORT, process.env.HOST || '127.0.0.1', () =>
+if (process.argv.includes('--stdio')) { const { StdioServerTransport } = await import('@modelcontextprotocol/sdk/server/stdio.js'); await buildServer().connect(new StdioServerTransport()) } else httpServer.listen(PORT, process.env.HOST || '127.0.0.1', () =>
   console.log(`Sunshine Atlas MCP: http://127.0.0.1:${PORT} (data: ${DATA_FILE}, ${dests.length} destinations)`))
