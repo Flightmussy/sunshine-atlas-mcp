@@ -252,5 +252,5 @@ const httpServer = http.createServer(async (req, res) => {
 })
 
 loadData() // fail fast at boot if the dataset is unreadable
-httpServer.listen(PORT, '127.0.0.1', () =>
+httpServer.listen(PORT, process.env.HOST || '127.0.0.1', () =>
   console.log(`Sunshine Atlas MCP: http://127.0.0.1:${PORT} (data: ${DATA_FILE}, ${dests.length} destinations)`))
