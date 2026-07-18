@@ -66,7 +66,9 @@ PORT=8787 DATA_FILE=./sunshine-atlas-destinations.json node server.mjs
 
 - Sunshine Score = `100 × warmth × (0.5 + 0.5 × (0.55 × dryness + 0.45 × sunniness))`, computed
   from long-term climate normals — [methodology](https://sunshineatlas.com/methodology/).
-- Sources: CRU climatology; places from GeoNames & OurAirports; sea temperatures via Open-Meteo.
+- Sources: temperature, rainfall and sunshine from [NASA POWER](https://power.larc.nasa.gov/)
+  climatology (2001–2020); places & populations from GeoNames & OurAirports; sea temperatures
+  via Open-Meteo Marine.
 - Dataset: [sunshineatlas.com/data](https://sunshineatlas.com/data/) · CSV/JSON · CC BY 4.0 ·
   mirrors on [GitHub](https://github.com/Flightmussy/sunshine-atlas-data),
   [Hugging Face](https://huggingface.co/datasets/Flightmussy/sunshine-atlas),
